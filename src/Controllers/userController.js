@@ -23,7 +23,7 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   if (!email || !password || !role) {
     return next(new ErrorHandle("Invalid email or password or role", 400));
   }
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email }).select("+password");
   if (!user) {
     return next(new ErrorHandle("Invalid email or password", 401));
   }
