@@ -60,7 +60,7 @@ userSchema.pre("save", async function (next) {
 });
 //JWT Token
 userSchema.methods.getJWTToken = function () {
-  return jwt.sign({ id: this._id }, "ifhreiufh9834h9845ufu4r834rh43h", {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: 30,
   });
 };
