@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
   try {
     await connect();
-    console.log(`Server is Listening on port ${port}`);
+    console.log(`Server is Listening on port ${PORT}`);
   } catch (e) {
     console.log(e);
   }
